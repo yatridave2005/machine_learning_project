@@ -3,6 +3,7 @@ import streamlit as st
 import pickle
 import os
 import numpy as np
+from sklearn.preprocessing import StandardScaler
 st.set_page_config(
     page_title="Disease Prediction System",
     page_icon="🩺",
@@ -20,19 +21,10 @@ if not os.path.exists("label_encoder.pkl"):
 
 model = pickle.load(open("disease_model.pkl", "rb"))
 le = pickle.load(open("label_encoder.pkl", "rb"))
-
-
-# model UI
-
+scaler = pickle.load(open("scaler.pkl", "rb"))
 
 
 
-
-
-
-# Load model & encoder
-model = pickle.load(open("disease_model.pkl", "rb"))
-le = pickle.load(open("label_encoder.pkl", "rb"))
 
 # ---------- TITLE ----------
 st.markdown(
@@ -61,8 +53,10 @@ selected_symptoms = st.sidebar.multiselect(
 )
 
 # ---------- MAIN LOGIC ----------
+scaler = StandardScaler()
 input_data = [1 if symptom in selected_symptoms else 0 for symptom in symptom_list]
 input_array = np.array(input_data).reshape(1, -1)
+input_scaled = scaler.transform(input_scaled)
 
 st.divider()
 
