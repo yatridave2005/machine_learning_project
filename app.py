@@ -56,7 +56,7 @@ selected_symptoms = st.sidebar.multiselect(
 scaler = StandardScaler()
 input_data = [1 if symptom in selected_symptoms else 0 for symptom in symptom_list]
 input_array = np.array(input_data).reshape(1, -1)
-input_scaled = scaler.transform(input_scaled)
+input_scaled = scaler.transform(input_data)
 
 st.divider()
 
