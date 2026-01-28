@@ -3,7 +3,7 @@ import streamlit as st
 import pickle
 import os
 import numpy as np
-from sklearn.preprocessing import StandardScaler
+
 st.set_page_config(
     page_title="Disease Prediction System",
     page_icon="🩺",
@@ -53,10 +53,10 @@ selected_symptoms = st.sidebar.multiselect(
 )
 
 # ---------- MAIN LOGIC ----------
-scaler = StandardScaler()
+
 input_data = [1 if symptom in selected_symptoms else 0 for symptom in symptom_list]
 input_array = np.array(input_data).reshape(1, -1)
-input_scaled = scaler.transform(input_data)
+
 
 st.divider()
 
