@@ -11,7 +11,11 @@ Original file is located at
 import streamlit as st
 import pickle
 import os
-
+st.set_page_config(
+    page_title="Disease Prediction System",
+    page_icon="🩺",
+    layout="centered"
+)
 st.title("🩺 Disease Prediction System")
 
 if not os.path.exists("disease_model.pkl"):
@@ -29,16 +33,10 @@ le = pickle.load(open("label_encoder.pkl", "rb"))
 # model UI
 
 
-import streamlit as st
-import pickle
-import numpy as np
 
-# Page config
-st.set_page_config(
-    page_title="Disease Prediction System",
-    page_icon="🩺",
-    layout="centered"
-)
+
+
+
 
 # Load model & encoder
 model = pickle.load(open("disease_model.pkl", "rb"))
