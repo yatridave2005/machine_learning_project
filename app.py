@@ -8,7 +8,7 @@ st.set_page_config(
     page_icon="🩺",
     layout="centered"
 )
-st.title("🩺 Disease Prediction System")
+
 
 if not os.path.exists("disease_model.pkl"):
     st.error("Model file not found!")
