@@ -21,7 +21,7 @@ if not os.path.exists("label_encoder.pkl"):
 
 model = pickle.load(open("disease_model.pkl", "rb"))
 le = pickle.load(open("label_encoder.pkl", "rb"))
-scaler = pickle.load(open("scaler.pkl", "rb"))
+
 
 
 
