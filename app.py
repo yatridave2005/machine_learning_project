@@ -91,3 +91,4 @@ st.markdown(
     "<p style='text-align:center; font-size:14px;'>Made using Machine Learning & Streamlit</p>",
     unsafe_allow_html=True
 )
+st.error("This model is likely to make mistakes.")
